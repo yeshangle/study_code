@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from redis import StrictRedis
+import redis
 
-redis = StrictRedis(host='localhost', port=6379)
+redis = redis.Redis(host='localhost', port=6379)
 
 redis.zadd("end_game_world_rank", 21, 1003856)
 
