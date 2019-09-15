@@ -16,6 +16,7 @@ class MngYan(scrapy.Spider):
         mm = [scrapy.FormRequest('http://www.job1001.com/SearchResult.php',
                             formdata={'search_region': '地区不限', 'jtzw': '一级建造师'},
                             callback=self.parse)]
+        self.log("mm is %s" % mm)
         return mm
 
 
