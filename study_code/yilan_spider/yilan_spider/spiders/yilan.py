@@ -22,7 +22,7 @@ class MngYan(scrapy.Spider):
 
     def parse(self, response):
         filename = "yilan.html"
-        with open(filename, 'wb') as f:
+        with open(filename, 'w') as f:
             f.write(response.body)
         self.log("保存文件：%s" % filename)
 
