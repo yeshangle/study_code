@@ -12,8 +12,11 @@ class MngYan(scrapy.Spider):
     def start_requests(self):
 
         # 爬取的连接
-        mm = "./test.html"
-        self.log("mm is %s" % mm)
+
+        mm = [scrapy.FormRequest('http://www.job1001.com',
+                             formdata={'region_1': '地区不限', 'jtzw': '一级建造师'},
+                             callback=self.parse)]
+
         return mm
 
     def parse(self, response):
