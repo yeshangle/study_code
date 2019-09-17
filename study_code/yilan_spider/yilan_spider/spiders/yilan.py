@@ -12,12 +12,9 @@ class MngYan(scrapy.Spider):
     def start_requests(self):
 
         # 爬取的连接
-
-        mm = [scrapy.FormRequest('http://www.job1001.com',
-                             formdata={'region_1': '地区不限', 'jtzw': '一级建造师'},
-                             callback=self.parse)]
-
-        return mm
+        return scrapy.FormRequest('http://www.job1001.com',
+                                formdata={'region_1': '地区不限', 'jtzw': '一级建造师'},
+                                callback=self.parse)
 
     def parse(self, response):
         filename = "yilan.html"
