@@ -19,6 +19,6 @@ class MngYan(scrapy.Spider):
     def parse(self, response):
         filename = "yilan.html"
         with open(filename, 'w') as f:
-            f.write(response.body.decode('utf-8'))
+            f.write(response.body.encode('gb2312').decode('utf-8'))
         self.log("保存文件：%s" % filename)
 
