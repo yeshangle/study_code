@@ -46,6 +46,9 @@ FEED_EXPORT_ENCODING = 'gb2312'
 #   'Accept-Language': 'en',
 #}
 
+DEFAULT_REQUEST_HEADERS = {
+"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36"
+}
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
