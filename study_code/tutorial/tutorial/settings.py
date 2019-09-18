@@ -22,7 +22,6 @@ NEWSPIDER_MODULE = 'tutorial.spiders'
 ROBOTSTXT_OBEY = True
 
 
-FEED_EXPORT_ENCODING = 'GB2312'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
