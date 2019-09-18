@@ -7,4 +7,4 @@ headers = headers = {
 
 res = requests.get('https://www.job1001.com/SearchResult.php?page=37&&parentName=&key=&region_1=&region_2=&region_3=&keytypes=&jtzw=%D2%BB%BC%B6%BD%A8%D4%EC%CA%A6&data=&dqdh_gzdd=&jobtypes=&edus=&titleAction=&provinceName=&sexs=&postidstr=&postname=&searchzwtrade=&gznum=&rctypes=&salary=&showtype=list&sorttype=score#main_search')
 
-print res.text
+print type(res.text)
