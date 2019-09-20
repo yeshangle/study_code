@@ -49,6 +49,7 @@ class DataSpider(object):
         # 用于存储单个公司的信息
         model = dict()
         for url in self.spider_url:
+            print url 
             res = requests.get(url, headers=self.headers)
             res.encoding = 'gb2312'
             soup = BeautifulSoup(res.content)
