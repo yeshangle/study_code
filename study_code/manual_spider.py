@@ -53,7 +53,8 @@ class DataSpider(object):
         # 职位要求
         order_list = list()
         opsition_info = soup.find(name='div', attrs={"class": "job_depict"}).get_text().split(' ')
-        print company_name, position_name, opsition_info
+        result_list = [i.strip() for i in opsition_info]
+        print company_name, position_name, result_list
 
 if __name__ == "__main__":
     DataSpider().spider_apllication_data()
