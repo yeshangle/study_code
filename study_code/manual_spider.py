@@ -51,11 +51,11 @@ class DataSpider(object):
         # 职位
         position_name = soup.find(attrs={"class": "job_post_name"}).a['title']
         # 职位要求
-        order_list = list()
         opsition_info = soup.find(name='div', attrs={"class": "job_depict"}).get_text().split(' ')
         result_list = [i.strip() for i in opsition_info]
-        print result_list
-        del result_list[-1:]
+        last_line = result_list[-1].split("\t")[0]
+        result_list.pop()
+        result_list.append(last_line)
         for result in result_list:
             print result
 
