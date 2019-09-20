@@ -50,28 +50,23 @@ class DataSpider(object):
         model = dict()
         fp = open("test.html", "w")
         for url in self.spider_url:
-            print url
             res = requests.get(url, headers=self.headers)
             soup = BeautifulSoup(res.content, 'html5lib')
             # 公司名称
-            #model['company_name'] = soup.find(name='div', attrs={"class": "company_name"}).get_text().split("\n")[1]
+            model['company_name'] = soup.find(name='div', attrs={"class": "company_name"}).get_text().split("\n")[1]
             # # 职位
-            # model['position'] = soup.find(attrs={"class": "job_post_name"}).a['title']
+            model['position'] = soup.find(attrs={"class": "job_post_name"}).a['title']
             # # 职位要求
-            positive_info = soup.find(name='div', attrs={"class": "job_depict"})
-            print positive_info
-
-            # text = positive_info.get_text()
-            # #result_list = [i.strip() for i in positive_info]
-            # # last_line = result_list[-1].split("\t")[0]
-            # # result_list.pop()
-            # # result_list.append(last_line)
-            # # model['position_contend'] = ",".join(result_list)
+            positive_info = soup.find(name='div', attrs={"class": "job_depict"}).get_text().split(" ")
+            result_list = [i.strip() for i in positive_info]
+            last_line = result_list[-1].split("\t")[0]
+            result_list.pop()
+            result_list.append(last_line)
+            model['position_contend'] = ",".join(result_list)
             # model['position_contend'] = text
-            # # print model['company_name'] + "\n"
-            # # print model['position'] + "\n"
-            # print model['position_contend']
-            print "\n"
+            print model['company_name'] + "\n"
+            print model['position'] + "\n"
+            print model['position_contend'] + "\n"
             print "-------------------------------------------"
 
 
