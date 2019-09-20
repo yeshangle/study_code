@@ -54,15 +54,19 @@ class DataSpider(object):
             res.encoding = 'gb2312'
             soup = BeautifulSoup(res.content)
             # 公司名称
-            model['company_name'] = soup.find(name='div', attrs={"class": "company_name"}).get_text().split("\n")[0]
+            data_list = soup.find(name='div', attrs={"class": "company_name"}).get_text().split("\n")
+            for index, data in enumerate(data_list):
+                print index, data
+                print "\n"
+            model['company_name'] = data_list[1]
             # 职位
             model['position'] = soup.find(attrs={"class": "job_post_name"}).a['title']
             # 职位要求
             positive_info = soup.find(name='div', attrs={"class": "job_depict"}).get_text().split(' ')
             result_list = [i.strip() for i in positive_info]
-            last_line = result_list[-1].split("\t")[0]
-            result_list.pop()
-            result_list.append(last_line)
+            # last_line = result_list[-1].split("\t")[0]
+            # result_list.pop()
+            # result_list.append(last_line)
             model['position_contend'] = ",".join(result_list)
             print model['company_name'] + "\n"
             print model['position'] + "\n"
