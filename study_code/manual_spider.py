@@ -49,12 +49,12 @@ class DataSpider(object):
         # 用于存储单个公司的信息
         model = dict()
         for url in self.spider_url:
-            print url 
+            print url
             res = requests.get(url, headers=self.headers)
             res.encoding = 'gb2312'
             soup = BeautifulSoup(res.content)
             # 公司名称
-            model['company_name'] = soup.find(attrs={"class": "company_name"}).span['title']
+            model['company_name'] = soup.find(name='div', attrs={"class": "company_name"}).get_text()
             # 职位
             model['position'] = soup.find(attrs={"class": "job_post_name"}).a['title']
             # 职位要求
@@ -64,6 +64,7 @@ class DataSpider(object):
             result_list.pop()
             result_list.append(last_line)
             model['position_contend'] = ",".join(result_list)
+            print "%s\n" % str(model)
             all_commpany.append(model)
 
         for i in all_commpany:
