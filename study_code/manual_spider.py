@@ -48,9 +48,12 @@ class DataSpider(object):
         soup = BeautifulSoup(res.content.decode('utf-8'))
         # 公司名称
         company_name = soup.find(attrs={"class": "company_name"}).span['title']
+        print company_name
+        print "\n"
         # 职位
         position_name = soup.find(attrs={"class": "job_post_name"}).a['title']
         # 职位要求
+        print position_name + '\n'
         opsition_info = soup.find(name='div', attrs={"class": "job_depict"}).get_text().split(' ')
         result_list = [i.strip() for i in opsition_info]
         last_line = result_list[-1].split("\t")[0]
