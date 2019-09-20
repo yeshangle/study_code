@@ -44,27 +44,35 @@ class DataSpider(object):
         用于获取公司名字和招聘信息.......
         :return:
         """
-        url = ['http://www.lqjob88.com/jobs/52961392.html']
-        res = requests.get(url[0], headers=self.headers)
-        res.encoding = 'gb2312'
-        soup = BeautifulSoup(res.content.decode('utf-8'))
-        # 公司名称
-        company_name = soup.find(attrs={"class": "company_name"}).span['title']
+        # 用于存储所有获取的公司信息
+        all_commpany = list()
+        # 用于存储单个公司的信息
+        model = dict()
+        for url in self.spider_url:
+            res = requests.get(url, headers=self.headers)
+            res.encoding = 'gb2312'
+            soup = BeautifulSoup(res.content.decode('utf-8'))
+            # 公司名称
+            model['company_name'] = soup.find(attrs={"class": "company_name"}).span['title']
+            # 职位
+            model['position'] = soup.find(attrs={"class": "job_post_name"}).a['title']
+            # 职位要求
+            positive_info = soup.find(name='div', attrs={"class": "job_depict"}).get_text().split(' ')
+            result_list = [i.strip() for i in positive_info]
+            last_line = result_list[-1].split("\t")[0]
+            result_list.pop()
+            result_list.append(last_line)
+            model['position_contend'] = ",".join(result_list)
+            all_commpany.append(model)
 
-        # 职位
-        position_name = soup.find(attrs={"class": "job_post_name"}).a['title']
-        # 职位要求
-        positive_info = soup.find(name='div', attrs={"class": "job_depict"}).get_text().split(' ')
-        result_list = [i.strip() for i in positive_info]
-        last_line = result_list[-1].split("\t")[0]
-        result_list.pop()
-        result_list.append(last_line)
-        positive_contend = ",".join(result_list)
-        print positive_contend
+        for i in all_commpany:
+            print "%s\n" % str(i)
+
+    def run(self):
+        self.spider_company_url()
+        self.spider_apllication_data()
 
 
-if __name__ == "__main__":
-    DataSpider().spider_apllication_data()
 
 
 
