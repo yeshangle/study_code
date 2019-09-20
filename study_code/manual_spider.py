@@ -39,7 +39,7 @@ class DataSpider(object):
 
     def spider_apllication_data(self):
         """
-        用于获取公司名字和招聘信息.......
+        用于获取公司名字和招聘信息.......klsdfjl;dfk;l
         :return:
         """
         url = ['http://www.lqjob88.com/jobs/52961392.html']
