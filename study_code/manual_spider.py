@@ -51,7 +51,7 @@ class DataSpider(object):
         for url in self.spider_url:
             res = requests.get(url, headers=self.headers)
             res.encoding = 'gb2312'
-            soup = BeautifulSoup(res.content.decode('utf-8'))
+            soup = BeautifulSoup(res.content)
             # 公司名称
             model['company_name'] = soup.find(attrs={"class": "company_name"}).span['title']
             # 职位
@@ -73,6 +73,8 @@ class DataSpider(object):
         self.spider_apllication_data()
 
 
+if __name__ == "__main__":
+    DataSpider().run()
 
 
 
