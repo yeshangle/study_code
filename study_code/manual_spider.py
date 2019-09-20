@@ -54,7 +54,7 @@ class DataSpider(object):
         order_list = list()
         opsition_info = soup.find_all(attrs={"class": "job_depict"})
         for info in opsition_info:
-            order_list.append(info.get_text())
+            order_list.append(info.get_text().decode("utf-8"))
 
         print company_name, position_name, order_list
 
