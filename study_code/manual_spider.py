@@ -39,11 +39,21 @@ class DataSpider(object):
 
     def spider_apllication_data(self):
         """
-        用于获取公司名字和招聘信息.......klsdfjl;dfk;l
+        用于获取公司名字和招聘信息.......
         :return:
         """
         url = ['http://www.lqjob88.com/jobs/52961392.html']
         res = requests.get(url, headers=self.headers)
+        res.encoding = 'gb2312'
+        soup = BeautifulSoup(res.content)
+        company_name = soup.find(attrs={"class": "company_name"}).span['title']
+
+        print company_name
+
+if __name__ == "__main__":
+    DataSpider().spider_apllication_data()
+
+
 
 
 
