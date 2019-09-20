@@ -43,7 +43,7 @@ class DataSpider(object):
         :return:
         """
         url = ['http://www.lqjob88.com/jobs/52961392.html']
-        res = requests.get(url, headers=self.headers)
+        res = requests.get(url[0], headers=self.headers)
         res.encoding = 'gb2312'
         soup = BeautifulSoup(res.content)
         company_name = soup.find(attrs={"class": "company_name"}).span['title']
