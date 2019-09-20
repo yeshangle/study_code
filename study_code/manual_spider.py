@@ -64,11 +64,13 @@ class DataSpider(object):
             result_list.pop()
             result_list.append(last_line)
             model['position_contend'] = ",".join(result_list)
-            print "%s\n" % str(model)
-            all_commpany.append(model)
+            print model['company_name'] + "\n"
+            print model['position'] + "\n"
+            print model['position_contend'] + '\n'
+            print "-------------------------------------------"
 
-        for i in all_commpany:
-            print "%s\n" % str(i)
+
+
 
     def run(self):
         self.spider_company_url()
