@@ -52,6 +52,8 @@ class DataSpider(object):
             print url
             res = requests.get(url, headers=self.headers)
             res.encoding = 'gb2312'
+            print res.content
+            break
             soup = BeautifulSoup(res.content, 'lxml')
             # 公司名称
             #model['company_name'] = soup.find(name='div', attrs={"class": "company_name"}).get_text().split("\n")[1]
