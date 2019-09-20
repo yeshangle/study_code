@@ -68,7 +68,8 @@ class DataSpider(object):
             model['position_contend'] = positive_info
             # print model['company_name'] + "\n"
             # print model['position'] + "\n"
-            print model['position_contend'] + '\n'
+            print model['position_contend']
+            print "\n"
             print "-------------------------------------------"
 
 
