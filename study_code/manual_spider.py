@@ -53,8 +53,8 @@ class DataSpider(object):
         # 职位要求
         order_list = list()
         opsition_info = soup.find_all(attrs={"class": "job_depict"})
-        for info in opsition_info:
-            order_list.append(info.content)
+        for info in opsition_info.children:
+            order_list.append(info)
 
         print company_name, position_name, order_list
 
