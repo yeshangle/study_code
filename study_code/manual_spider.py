@@ -45,7 +45,7 @@ class DataSpider(object):
         url = ['http://www.lqjob88.com/jobs/52961392.html']
         res = requests.get(url[0], headers=self.headers)
         res.encoding = 'gb2312'
-        soup = BeautifulSoup(res.content)
+        soup = BeautifulSoup(res.content.decode('utf-8'))
         # 公司名称
         company_name = soup.find(attrs={"class": "company_name"}).span['title']
         # 职位
