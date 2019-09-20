@@ -58,7 +58,7 @@ class DataSpider(object):
             # # 职位
             # model['position'] = soup.find(attrs={"class": "job_post_name"}).a['title']
             # # 职位要求
-            positive_info = soup.find_all(attrs={"class": "job_depict"})
+            positive_info = soup.find(name='div',attrs={"class": "job_depict"}).get_text()
 
             #result_list = [i.strip() for i in positive_info]
             # last_line = result_list[-1].split("\t")[0]
