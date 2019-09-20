@@ -17,6 +17,8 @@ class DataSpider(object):
         ]
         # 用于存放爬取所有的获取的url
         self.spider_url = list()
+        # 用于存储公司的信息以字典存储，value为列表由于公司名可能一样
+        self.company_contend = dict()
 
     def spider_company_url(self):
         """用于获取公司简介的url"""
@@ -48,19 +50,18 @@ class DataSpider(object):
         soup = BeautifulSoup(res.content.decode('utf-8'))
         # 公司名称
         company_name = soup.find(attrs={"class": "company_name"}).span['title']
-        print company_name
-        print "\n"
+
         # 职位
         position_name = soup.find(attrs={"class": "job_post_name"}).a['title']
         # 职位要求
-        print position_name + '\n'
-        opsition_info = soup.find(name='div', attrs={"class": "job_depict"}).get_text().split(' ')
-        result_list = [i.strip() for i in opsition_info]
+        positive_info = soup.find(name='div', attrs={"class": "job_depict"}).get_text().split(' ')
+        result_list = [i.strip() for i in positive_info]
         last_line = result_list[-1].split("\t")[0]
         result_list.pop()
         result_list.append(last_line)
-        for result in result_list:
-            print result
+        positive_contend = ",".join(result_list)
+        print positive_contend
+
 
 if __name__ == "__main__":
     DataSpider().spider_apllication_data()
