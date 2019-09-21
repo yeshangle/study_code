@@ -88,7 +88,7 @@ class DataSpider(object):
         # 首先获取所有的公司名字
         cp_name_list = self.company_contend.keys()
         for name in cp_name_list:
-            url = self.qixin_url.format(name)
+            url = self.qixin_url.format(name.encode("utf-8"))
             print url + "\n"
 
 
