@@ -56,7 +56,7 @@ class DataSpider(object):
             res = requests.get(url, headers=self.headers)
             soup = BeautifulSoup(res.content, 'html5lib')
             # 公司名称
-            model['company_name'] = soup.find(name='div', attrs={"class": "company_name"}).get_text().split("\n")[1].strip()
+            model['company_name'] = soup.find(name='div', attrs={"class": "company_name"}).get_text().split("\n")[1].strip().encode('utf-8')
             # # 职位
             model['position'] = soup.find(attrs={"class": "job_post_name"}).a['title']
             # # 职位要求
@@ -78,6 +78,7 @@ class DataSpider(object):
         # 将相同的公司名字的需求放在一个列表中
         for r in all_commpany:
             cp_name = r.get('company_name')
+            print cp_name
             if cp_name not in self.company_contend:
                 self.company_contend[cp_name] = list()
             self.company_contend[cp_name].append(r)
@@ -88,7 +89,7 @@ class DataSpider(object):
         # 首先获取所有的公司名字
         cp_name_list = self.company_contend.keys()
         for name in cp_name_list:
-            url = self.qixin_url.format(name.encode("utf-8"))
+            url = self.qixin_url.format(name)
             print url + "\n"
 
 
