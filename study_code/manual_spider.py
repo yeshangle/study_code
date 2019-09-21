@@ -66,11 +66,9 @@ class DataSpider(object):
                     index = r.find(u'职位类别')
                 if index:
                     r = r[:index]
-                if r.find(u'举报'):
-                    break
                 new_list.append(r)
 
-            model['position_contend'] = "".join(new_list).strip()
+            model['position_contend'] = "".join(new_list).strip().replace(u"举报","")
             print model['company_name'] + "\n"
             print model['position'] + "\n"
             print model['position_contend'] + "\n"
