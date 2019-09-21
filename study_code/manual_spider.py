@@ -94,7 +94,7 @@ class DataSpider(object):
         url = "https://www.qixin.com/search?from=baidusem8&key=广东建邦兴业集团有限公司&page=1"
         res = requests.get(url, headers=self.headers)
         soup = BeautifulSoup(res.content, 'html5lib')
-        result = soup.find_all(name='div', attrs={"class": "row bg-wihte"})
+        result = soup.find_all(name='div', attrs={"class": "row bg-white"})
         for i in result:
             print i
 
