@@ -51,8 +51,8 @@ class DataSpider(object):
         # 用于存储单个公司的信息
         time = datetime.datetime.now()
         date_time = time.strftime("%Y-%m-%d")
-        model = dict()
         for url in self.spider_url:
+            model = dict()
             res = requests.get(url, headers=self.headers)
             soup = BeautifulSoup(res.content, 'html5lib')
             # 公司名称
