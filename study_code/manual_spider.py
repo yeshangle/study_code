@@ -60,7 +60,7 @@ class DataSpider(object):
             result_list = [i.replace(" ", "") for i in positive_info]
             result_list_new = list()
             for r in result_list:
-                if r.find(u'职位类别'):
+                if r.find(u'职位类别') != -1:
                     break
                 result_list_new.append(r.replace("\n", ""))
             model['position_contend'] = "".join(result_list_new).strip()
