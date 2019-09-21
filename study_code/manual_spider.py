@@ -15,6 +15,8 @@ class DataSpider(object):
         self.url_list = [
             'http://www.job1001.com/SearchResult.php?page=0&sums=&&parentName=&key=&region_1=&region_2=&region_3=&keytypes=&jtzw=%D2%BB%BC%B6%BD%A8%D4%EC%CA%A6&data=&dqdh_gzdd=&jobtypes=&edus=&titleAction=&provinceName=&sexs=&postidstr=&postname=&searchzwtrade=&gznum=&rctypes=&salary=&showtype=list&sorttype=score#main_search'
         ]
+
+        self.qixin_url = "https://www.qixin.com/search?from=baidusem8&key={0}&page=1"
         # 用于存放爬取所有的获取的url
         self.spider_url = list()
         # 用于存储公司的信息以字典存储，value为列表由于公司名可能一样
@@ -47,6 +49,8 @@ class DataSpider(object):
         # 用于存储所有获取的公司信息
         all_commpany = list()
         # 用于存储单个公司的信息
+        time = datetime.datetime.now()
+        date_time = time.strftime("%Y-%m-%d")
         model = dict()
         for url in self.spider_url:
             res = requests.get(url, headers=self.headers)
@@ -67,12 +71,27 @@ class DataSpider(object):
                 if index:
                     r = r[:index]
                 new_list.append(r)
+            # 职位要求
+            model['position_contend'] = "".join(new_list).strip().replace(u"举报", "")
+            model['date'] = date_time
+            all_commpany.append(model)
+        # 将相同的公司名字的需求放在一个列表中
+        for r in all_commpany:
+            cp_name = r.get('company_name')
+            if cp_name not in self.company_contend:
+                self.company_contend[cp_name] = list()
+            self.company_contend[cp_name].append(r)
 
-            model['position_contend'] = "".join(new_list).strip().replace(u"举报","")
-            print model['company_name'] + "\n"
-            print model['position'] + "\n"
-            print model['position_contend'] + "\n"
-            print "-----------------------------------------------"
+        # 以上完成将所有公司的数据存入self.company_contend中
+
+    def get_company_number(self):
+        # 首先获取所有的公司名字
+        cp_name_list = self.company_contend.keys()
+        for name in cp_name_list:
+            url = self.qixin_url.format(name)
+            print url + "\n"
+
+
 
 
 
@@ -81,6 +100,7 @@ class DataSpider(object):
     def run(self):
         self.spider_company_url()
         self.spider_apllication_data()
+        self.get_company_number()
 
 
 if __name__ == "__main__":
