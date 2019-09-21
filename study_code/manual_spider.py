@@ -58,7 +58,7 @@ class DataSpider(object):
             # # 职位要求
             positive_info = soup.find(name='div', attrs={"class": "job_depict"}).get_text().split(" ")
             result_list = [i.replace(" ", "") for i in positive_info]
-            result_list_new = [i.strip("\n", "") for i in result_list]
+            result_list_new = [i.replace("\n", "") for i in result_list]
             for num, data in enumerate(result_list_new):
                 print num, data
             # model['position_contend'] = result_list[0]
