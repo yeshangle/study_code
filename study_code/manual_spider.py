@@ -66,16 +66,11 @@ class DataSpider(object):
                     index = r.find(u'职位类别')
                 if index:
                     r = r[:index]
+                if r.find(u'举报'):
+                    break
                 new_list.append(r)
 
-            # last_line = result_list_new[-1]
-            # index = last_line.find(u'职位类别')
-            # value_line = last_line[:index]
-            # new_list = result_list_new[:len(result_list_new)-1]
-            # new_list.append(value_line)
             model['position_contend'] = "".join(new_list).strip()
-            # model['position_contend'] = result_list[0]
-            # model['position_contend'] = text
             print model['company_name'] + "\n"
             print model['position'] + "\n"
             print model['position_contend'] + "\n"
