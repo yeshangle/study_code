@@ -87,10 +87,17 @@ class DataSpider(object):
 
     def get_company_number(self):
         # 首先获取所有的公司名字
-        cp_name_list = self.company_contend.keys()
-        for name in cp_name_list:
-            url = self.qixin_url.format(name)
-            print url + "\n"
+        # cp_name_list = self.company_contend.keys()
+        # for name in cp_name_list:
+        #     url = self.qixin_url.format(name)
+        #     print url + "\n"
+        url = "https://www.qixin.com/search?from=baidusem8&key=广东建邦兴业集团有限公司&page=1"
+        res = requests.get(url, headers=self.headers)
+        soup = BeautifulSoup(res.content, 'html5lib')
+        result = soup.find_all(name='div', attrs={"class": "row bg-wihte"})
+        for i in result:
+            print i
+
 
 
 
@@ -99,8 +106,9 @@ class DataSpider(object):
 
 
     def run(self):
-        self.spider_company_url()
-        self.spider_apllication_data()
+        # self.spider_company_url()
+        # self.spider_apllication_data()
+        # self.get_company_number()
         self.get_company_number()
 
 
