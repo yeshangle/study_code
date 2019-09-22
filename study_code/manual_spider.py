@@ -4,7 +4,10 @@ import requests
 from bs4 import BeautifulSoup
 import datetime
 import xlsxwriter
-
+import time
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 class DataSpider(object):
 
@@ -56,7 +59,7 @@ class DataSpider(object):
             res = requests.get(url, headers=self.headers)
             soup = BeautifulSoup(res.content, 'html5lib')
             # 公司名称
-            model['company_name'] = soup.find(name='div', attrs={"class": "company_name"}).get_text().split("\n")[1].strip().encode('utf-8')
+            model['company_name'] = soup.find(name='div', attrs={"class": "company_name"}).get_text().strip().encode('utf-8')
             # # 职位
             model['position'] = soup.find(attrs={"class": "job_post_name"}).a['title']
             # # 职位要求
@@ -177,10 +180,10 @@ class DataSpider(object):
 
     def run(self):
         headers = [u'日期', u'公司', u'职位', u'职责详情', u'电话']
-        # self.spider_company_url()
+        self.spider_company_url()
         company_data = self.spider_apllication_data()
 
-        self.write_excel(u"公司信息.xlsx", headers, company_data)
+        self.write_excel("data.xlsx", headers, company_data)
         # self.get_company_number()
         # self.get_company_number()
 
