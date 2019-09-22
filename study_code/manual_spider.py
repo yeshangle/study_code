@@ -81,7 +81,6 @@ class DataSpider(object):
         # 将相同的公司名字的需求放在一个列表中
         for r in all_commpany:
             cp_name = r.get('company_name')
-            print cp_name
             if cp_name not in self.company_contend:
                 self.company_contend[cp_name] = list()
             self.company_contend[cp_name].append(r)
@@ -180,7 +179,7 @@ class DataSpider(object):
 
     def run(self):
         time = datetime.datetime.now()
-        date_time = time.strftime("%Y-%m-%d"
+        date_time = time.strftime("%Y-%m-%d")
         headers = [u'日期', u'公司', u'职位', u'职责详情', u'电话']
         self.spider_company_url()
         company_data = self.spider_apllication_data()
