@@ -27,7 +27,7 @@ class DataSpider(object):
     def spider_company_url(self):
         """用于获取公司简介的url"""
 
-        for num in range(6):
+        for num in range(0, 8):
             url = self.url.format(num)
             res = requests.get(url, headers=self.headers)
             res.encoding = 'gb2312'
@@ -179,11 +179,13 @@ class DataSpider(object):
 
 
     def run(self):
+        time = datetime.datetime.now()
+        date_time = time.strftime("%Y-%m-%d"
         headers = [u'日期', u'公司', u'职位', u'职责详情', u'电话']
         self.spider_company_url()
         company_data = self.spider_apllication_data()
 
-        self.write_excel("data.xlsx", headers, company_data)
+        self.write_excel("data-{0}.xlsx".format(date_time), headers, company_data)
         # self.get_company_number()
         # self.get_company_number()
 
