@@ -61,6 +61,7 @@ class DataSpider(object):
             # 公司名称
             name = soup.find(name='div', attrs={"class": "company_name"}).get_text()
             model['company_name'] = name.split("\n")[0].strip().encode('utf-8')
+            print model['company_name']
             # # 职位
             model['position'] = soup.find(attrs={"class": "job_post_name"}).a['title']
             # # 职位要求
