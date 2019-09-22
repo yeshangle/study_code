@@ -91,26 +91,46 @@ class DataSpider(object):
         # for name in cp_name_list:
         #     url = self.qixin_url.format(name)
         #     print url + "\n"
-
-
-        from selenium import webdriver
-        from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-
-        dcap = dict(DesiredCapabilities.PHANTOMJS)
-        dcap['phantomjs.page.settings.userAgent'] = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36")
-
         url = "https://www.qixin.com/search?from=baidusem8&key=广东建邦兴业集团有限公司&page=1"
-        option = webdriver.ChromeOptions()
-        option.add_argument('headless')
-        option.add_argument('no-sandbox')
-        option.add_argument('disable-dev-shm-usage')
+        headers = {
+            '8fdc2cbcd4825a0e7899': "9f8b412641643049844e668e1b7b7852d09d25f9574c3ac6e887cdeb60b98c2bb5a958df2cefe65e344558bd0830636373cfff6597e27040dd51f7d0ef852ea3",
+            'accept': "application/json, text/plain, */*",
+            'accept-encoding': "gzip, deflate, br",
+            'accept-language': "zh-CN,zh;q=0.9",
+            'connection': "keep-alive",
+            'content-length': "118",
+            'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+            'cookie': "acw_tc=707c9f9815685596523042673e110f54e17f3dcee76b21dd7f381dd2da1564; channel=%2Bbaidusem17; Hm_lvt_52d64b8d3f6d42a2e416d59635df3f71=1568559652,1569077261,1569077433,1569126570; cookieShowLoginTip=3; Hm_lpvt_52d64b8d3f6d42a2e416d59635df3f71=1569143191",
+            'host': "www.qixin.com",
+            'origin': "https://www.qixin.com",
+            'referer': "https://www.qixin.com/search?from=baidusem8&key=%E5%B9%BF%E4%B8%9C%E5%BB%BA%E9%82%A6%E5%85%B4%E4%B8%9A%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&page=1",
+            'user-agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+            'x-requested-with': "XMLHttpRequest",
+            'cache-control': "no-cache",
+            'postman-token': "ea35a7db-e28a-de55-dae8-b4ab933e63c6"
+        }
+
+        res = requests.get(url, headers=headers)
+
+        print res.content
+        # from selenium import webdriver
+        # from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+        #
+        # # dcap = dict(DesiredCapabilities.PHANTOMJS)
+        # # dcap['phantomjs.page.settings.userAgent'] = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36")
+        #
+        # url = "https://www.qixin.com/search?from=baidusem8&key=广东建邦兴业集团有限公司&page=1"
+        # option = webdriver.ChromeOptions()
+        # option.add_argument('headless')
+        # option.add_argument('no-sandbox')
+        # option.add_argument('disable-dev-shm-usage')
         # browser = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=option)
-        browser = webdriver.PhantomJS(desired_capabilities=dcap)
-        browser.get(url)
-        data = browser.page_source
-        browser.save_screenshot('1.png')
-        print data
-        browser.quit()
+        # # browser = webdriver.PhantomJS(desired_capabilities=dcap)
+        # browser.get(url)
+        # data = browser.page_source
+        # browser.save_screenshot('1.png')
+        # print data
+        # browser.quit()
 
 
 
