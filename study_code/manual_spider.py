@@ -59,7 +59,8 @@ class DataSpider(object):
             res = requests.get(url, headers=self.headers)
             soup = BeautifulSoup(res.content, 'html5lib')
             # 公司名称
-            model['company_name'] = soup.find(name='div', attrs={"class": "company_name"}).get_text().strip().encode('utf-8')
+            name = soup.find(name='div', attrs={"class": "company_name"}).get_text()
+            model['company_name'] = name.split("\n")[0].strip().encode('utf-8')
             # # 职位
             model['position'] = soup.find(attrs={"class": "job_post_name"}).a['title']
             # # 职位要求
