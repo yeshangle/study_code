@@ -91,15 +91,16 @@ class DataSpider(object):
         # for name in cp_name_list:
         #     url = self.qixin_url.format(name)
         #     print url + "\n"
-        url = "https://www.qixin.com/search?from=baidusem8&key=广东建邦兴业集团有限公司&page=1"
+        # url = "https://www.qixin.com/search?from=baidusem8&key=广东建邦兴业集团有限公司&page=1"
+        url = 'https://www.qixin.com/search?from=wap&key=京商建设集团有限公司&scope[]=1'
         res = requests.get(url, headers=self.headers)
         soup = BeautifulSoup(res.content)
-        fp = open("test.html", "w")
-        fp.write(res.content)
+        # fp = open("test.html", "w")
+        # fp.write(res.content)
         fp.close()
-        # result = soup.find_all(attrs={"class": "legal-person"})
-        # for i in result:
-        #     print i
+        result = soup.find_all(attrs={"class": "legal-person"})
+        for i in result:
+            print i
 
 
 
