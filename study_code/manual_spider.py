@@ -94,20 +94,24 @@ class DataSpider(object):
 
 
         from selenium import webdriver
+        from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+        dcap = dict(DesiredCapabilities.PHANTOMJS)
+        dcap['phantomjs.page.settings.userAgent'] = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36")
 
         url = "https://www.qixin.com/search?from=baidusem8&key=广东建邦兴业集团有限公司&page=1"
         option = webdriver.ChromeOptions()
         option.add_argument('headless')
         option.add_argument('no-sandbox')
         option.add_argument('disable-dev-shm-usage')
-        browser = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=option)
-
+        # browser = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=option)
+        browser = webdriver.PhantomJS(desired_capabilities=dcap)
         browser.get(url)
         data = browser.page_source
         browser.save_screenshot('1.png')
         print data
         browser.quit()
-  
+
 
 
 
