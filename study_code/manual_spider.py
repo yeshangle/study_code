@@ -110,7 +110,7 @@ class DataSpider(object):
             # 'postman-token': "fd093e9b-9a1a-41dc-ade1-c60b7d231730"
         }
 
-        res = requests.get(url, headers=headers)
+        res = requests.get(url.split('\n')[0], headers=headers)
 
         print res.content
         # from selenium import webdriver
