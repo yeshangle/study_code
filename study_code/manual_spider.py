@@ -106,8 +106,6 @@ class DataSpider(object):
             'referer': "https://www.qixin.com/search?from=baidusem8&key=%E5%B9%BF%E4%B8%9C%E5%BB%BA%E9%82%A6%E5%85%B4%E4%B8%9A%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&page=1",
             'user-agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
             'x-requested-with': "XMLHttpRequest",
-            'cache-control': "no-cache",
-            'postman-token': "ea35a7db-e28a-de55-dae8-b4ab933e63c6"
         }
 
         res = requests.get(url, headers=headers)
