@@ -1,0 +1,253 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src=" https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!--所有的栅格必须放到容器中才会规范排列-->
+<!--<div class="container">-->s
+    <!--<div class="row">-->
+        <!--<div class="col-lg-4 col-md-4">1</div>-->
+        <!--<div class="col-lg-4 col-md-4">2</div>-->
+        <!--<div class="col-lg-4 col-md-4">3</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-6">栅格1</div>-->
+        <!--<div class="col-md-6">栅格2</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->
+    <!--<div class="col-md-4">.col-md-4</div>-->
+    <!--<div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>-->
+<!--</div>-->
+
+<!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-6">栅格1</div>-->
+            <!--<div class="col-md-6">栅格2</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--# 改变顺序-->
+<!--<div class="row">-->
+    <!--<div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>-->
+    <!--<div class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9</div>-->
+<!--</div>-->
+
+
+<!--面板：需要向 <div> 元素添加 class .panel 和 class .panel-default 即可，也可设置带有色彩的面板，只需将 panel-default 替换（panel-primary、panel-success、panel-info、panel-warning、panel-danger）即可-->
+<!--面板标题容器：（向面板添加标题容器 .panel-heading）-->
+<!--面板标题：用带有 .panel-title class 的 <h1>-<h6> 来添加预定义样式的标题-->
+<!--面板脚注： 添加 class.panel-footer-->
+
+<!--<div class="col-lg-4 col-md-4">-->
+    <!--<div class="panel panel-danger">-->
+        <!--<div class="panel-heading"><h3 class="panel-title"> 带有 title 的面板标题 </h3></div>-->
+        <!--<div class="panel-body"> 这是一个基本的面板</div>-->
+        <!--<div class="panel-footer">面板脚注</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--下拉菜单（dropdown）-->
+<!--用 class.dropdown 来修饰 div-->
+<!--用 class.dropdown-menul 来修饰下拉菜单的内容-->
+<!--button 的 id 值一定要与下拉菜单内容中 aria-labelledby 的值相对应-->
+<!--button 一定要引用 data-toggle="dropdown"，代码可下拉-->
+
+<!--<div class="dropdown">-->
+    <!--<button class="btn btn-default" type="button" id="dropdownMenu1" data-toggle="dropdown"> Dropdown <span-->
+            <!--class="caret"></span></button>-->
+    <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+        <!--<li><a href="#">Action</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;按钮组（btn-group）&ndash;&gt;-->
+<!--&lt;!&ndash;用 .btn-group 来修饰 div&ndash;&gt;-->
+<!--对按钮组大小设置（btn-group-xs、btn-group-md、btn-group-lg）-->
+<!--垂直按钮组只要添加 class.btn-group-vertical 样式即可-->
+<!--对齐按钮组只要将 .btn 按钮放置在 class.btn-group-justified 样式里即可-->
+<!--对按钮颜色设置 （btn-default、btn-primary、btn-success、btn-info、btn-warning、btn-danger）-->
+<!--对按钮大小设置 （btn-lg、btn-md、btn-sm、btn-xs）-->
+
+<!--<div class="col-lg-4 col-md-4">-->
+    <!--<div class="btn-group btn-group-md  btn-group-vertical" role="group" aria-label="...">-->
+        <!--<button type="button" class="btn btn-info ">Left</button>-->
+        <!--<button type="button" class="btn btn-danger">Middle</button>-->
+        <!--<button type="button" class="btn btn-default" id="dropdownMenu1" data-toggle="dropdown">Right</button>-->
+        <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+            <!--<li><a href="#">Action</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+
+<!--输入框组（input-group）-->
+<!--通过在文本输入框 <input> 前面、后面或是两边加上文字或按钮，可以实现对表单控件的扩展。-->
+<!--为 .input-group 赋予 .input-group-addon 或 .input-group-btn 类，可以给 .form-control 的前面或后面添加额外的元素-->
+
+<!--<div class="input-group"><span class="input-group-addon" id="basic-addon1">@</span> <input type="text"-->
+                                                                                           <!--class="form-control"-->
+                                                                                           <!--placeholder="Username"-->
+                                                                                           <!--aria-describedby="basic-addon1">-->
+<!--</div>-->
+
+<!--<div class="input-group"><input type="text" class="form-control" placeholder="Recipient's username"-->
+                                <!--aria-describedby="basic-addon2"> <span class="input-group-addon" id="basic-addon2">@example.com</span>-->
+<!--</div>-->
+
+
+<!--<div class="input-group"><span class="input-group-addon">$</span> <input type="text" class="form-control"-->
+                                                                         <!--aria-label="Amount (to the nearest dollar)">-->
+    <!--<span class="input-group-addon">.00</span></div>-->
+
+<!--导航条（navbar）-->
+<!--用 navbar navbar-default 来修饰 div 或者 nav-->
+<!--如果导航条上存在 form，那么给 form 表单加上 navbar-form-->
+<!--按钮 navbar-btn-->
+<!--文本 navbar-text-->
+<!--链接 navbar-link-->
+<!--固定在顶部 navbar-fixed-top 或者底部 navbar-fixed-bottom-->
+<!--navbar 中可包裹一个 container|container-fluid-->
+<!--反色 navbar-inverse-->
+
+<!--<form class="navbar-form">-->
+    <!--<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">-->
+        <!--<div class="pull=left navbar-text">名字</div>-->
+        <!--<button class="navbar-btn">名字</button>-->
+        <!--<a class="pull-right navbar-link">www.baidu.com</a></nav>-->
+<!--</form>-->
+
+<!--列表（list-group）-->
+<!--.list-group 修饰 <ul>-->
+<!--模态框（modal）-->
+<!--模态框经过了优化，更加灵活，以弹出对话框的形式出现，减少了页面的跳转，更加方便简洁-->
+<!--模态框由头部（modal-title），内容（modal-body）及操作区域（modal-footer）组成-->
+<!--对button设置 data-toggle="modal" data-target="#myModal"-->
+<!--对modal 设置 id 和 data-target 的值对应-->
+<!--data-dismiss="modal" 是对模态框设置关闭-->
+
+<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> Launch demo modal-->
+<!--</button>    &lt;!&ndash; Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+    <!--<div class="modal-dialog" role="document">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
+                <!--</button>-->
+                <!--<h4 class="modal-title" id="myModalLabel">Modal title</h4></div>-->
+            <!--<div class="modal-body"> ...</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+                <!--<button type="button" class="btn btn-primary">保存</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<!--tab 页的出现，让我们减少了很多空间在同一区域通过不同按钮的切换便可实现不同的内容-->
+<!--按钮中 a 标签 href 的指向应该是它相对应内容的 id-->
+
+<!--<div>              &lt;!&ndash; Nav tabs &ndash;&gt;-->
+    <!--<ul class="nav nav-tabs" role="tablist">-->
+        <!--<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"-->
+                                                  <!--data-toggle="tab">Home</a></li>-->
+        <!--<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>-->
+    <!--</ul>-->
+
+<!--弹出框（Popover）-->
+<!--弹出框适用于信息的提示-->
+<!--data-content里的内容可是是一句话，可以是一些操作，本章我们只介绍如何使用弹出框，对过于复杂的操作不做阐述-->
+<!--弹出框必须通过js启动-->
+<!--data-placement是指设置弹出框的方向（top，left，right，bottom）-->
+
+<!--<button id="example" type="button" class="btn btn-default" data-container="body" data-toggle="popover"-->
+        <!--data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."> Popover on 右侧-->
+<!--</button>-->
+
+<!--<script type="text/javascript">        $('#example').popover()   </script>-->
+
+<!--工具提示（tooltip）-->
+<!--主要用来提示目前元素是干什么用的-->
+<!--data-placement 设置提示信息的方向（top，right，bottom，left）-->
+<!--启动提示信息需要 js 代码完成-->
+
+<!--<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">-->
+    <!--Tooltip on bottom-->
+<!--</button>-->
+<!--<script>-->
+    <!--$('[data-toggle="tooltip"]').tooltip()-->
+<!--</script>-->
+
+<!--警告框（alert）-->
+<!--用来提示发生了什么-->
+<!--不同的颜色代码不同的含义（alert-success、alert-info、alert-warning、alert-danger），需要根据需求来分析适合用那个色系来提示警告信息-->
+<!--可关闭只需添加data-dismiss="alert" aria-label="Close"-->
+
+<!--<div class="alert alert-success" role="alert">-->
+    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>-->
+    <!--</button>-->
+    <!--Better check yourself, you're not looking too good-->
+<!--</div>-->
+<!--<div class="alert alert-info" role="alert">-->
+    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>-->
+    <!--</button>-->
+    <!--Have a try!-->
+<!--</div>-->
+<!--<div class="alert alert-warning" role="alert">...</div>-->
+<!--<div class="alert alert-danger" role="alert">...</div>-->
+
+<!--表格（table）-->
+<!--表格分为多种类型，包含基本表格、条纹状表格（.table-striped）、带边框的表格（.table-bordered）、紧缩表格（.table-condensed）-->
+<!--鼠标悬停表格上（.table-hover）-->
+<!--表格每一行都可设置不同的样式，可需要加上样式（.success、.info、.warning、.danger）-->
+<!--鼠标悬停在行或单元格上时所设置的颜色（.active）-->
+
+<!--<table class="table table-striped table-hover">-->
+    <!--<thead>-->
+    <!--<tr>-->
+        <!--<th class="warning">1</th>-->
+        <!--<th class="danger">2</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr>-->
+        <!--<td class="active">11</td>-->
+        <!--<td class="success">22</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+<!DOCTYPE html>
+<html>
+<form>
+    <div class="form-group"><label for="exampleInputEmail1">Email address</label> <input type="email"
+                                                                                         class="form-control"
+                                                                                         id="exampleInputEmail1"
+                                                                                         placeholder="Email"></div>
+    <div class="form-group"><label for="exampleInputPassword1">Password</label> <input type="password"
+                                                                                       class="form-control"
+                                                                                       id="exampleInputPassword1"
+                                                                                       placeholder="Password"></div>
+    <div class="form-group"><label for="exampleInputFile">File input</label> <input type="file" id="exampleInputFile">
+        <p class="help-block">Example block-level help text here.</p></div>
+    <div class="checkbox"><label> <input type="checkbox"> Check me out </label></div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
