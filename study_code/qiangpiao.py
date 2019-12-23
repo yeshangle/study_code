@@ -3,12 +3,17 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC  # 期望的条件
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from lxml import etree
 
 
 class qiangpiao(object):
+
     def __init__(self):
-        self.driver = webdriver.Chrome(executable_path="/home/ubuntu/Download/chromedriver")
+        self.options = Options()
+        self.options.add_argument('--headless')
+        self.options.add_argument('--no-sandbox')
+        self.driver = webdriver.Chrome(executable_path="/home/ubuntu/Download/chromedriver", chrome_options=self.options)
         self.initmy_url = 'https://www.damai.cn/'
         self.search_url = 'https://search.damai.cn/search.html?keyword=&spm=a2oeg.home.searchtxt.dsearchbtn2'
         self.login_url = 'https://passport.damai.cn/login?ru=https%3A%2F%2Fwww.damai.cn%2F'
