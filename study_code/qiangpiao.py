@@ -15,7 +15,7 @@ class qiangpiao(object):
 
     def wait_input(self):
         self.name = input('演出名和地点（输入吴亦凡 重庆）：')
-        #self.time = input('几号（如：18）：')
+        # self.time = input('几号（如：18）：')
         self.changci = input('场次时间（输入2019-05-25 周六 19:00）：')
         self.price = input('票价（输入：看台1380元）：')
         # self.number = input('票数（如：1）：')
