@@ -14,5 +14,9 @@ def add(x, y):
     return x+y
 
 
+
+print "hahahhahaahhh"
+
+
 # if __name__ == '__main__':
 #     result = add.delay(30, 42)
